@@ -6,8 +6,9 @@
     <title>Meine Notfall-App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="icon.png">
-    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Icon direkt als Base64 eingebettet (Garantiert immer geladen, offizielles Rotes Kreuz) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M35 15h30v20h20v30h-20v20h-30v-20h-20v-30h20z' fill='%23ED1C24'/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M35 15h30v20h20v30h-20v20h-30v-20h-20v-30h20z' fill='%23ED1C24'/></svg>">
     <style>
         :root {
             --glass-bg: rgba(255, 255, 255, 0.75);
@@ -184,10 +185,6 @@
         <!-- ================= ANSICHT 1: HAUPTMENÜ ================= -->
         <main class="view-section p-4 space-y-5 max-w-md mx-auto">
             
-            <p class="text-center text-xs text-gray-400 font-medium tracking-wide uppercase mb-2 flex items-center justify-center gap-2">
-                <span>←</span> Wischen für Erste-Hilfe <span>→</span>
-            </p>
-
             <!-- Sektion: Direkte Notrufe -->
             <section class="grid grid-cols-2 gap-4">
                 <a href="tel:112" class="call-card call-card-red text-white text-center py-5 transition active:scale-95 flex flex-col items-center justify-center">
