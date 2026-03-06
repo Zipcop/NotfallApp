@@ -6,6 +6,8 @@
     <title>Meine Notfall-App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
     <style>
         :root {
             --glass-bg: rgba(255, 255, 255, 0.75);
@@ -160,18 +162,19 @@
     <!-- Premium Header -->
     <header class="bg-black/90 text-white pt-safe pb-4 px-4 shadow-xl fixed top-0 w-full z-50 backdrop-blur-md supports-[backdrop-filter]:bg-black/60">
         <!-- Spacer for iOS Status Bar -->
-        <div class="h-10 mt-2 flex justify-between items-center max-w-md mx-auto">
-            <button id="navMainBtn" class="nav-tab active text-sm">Notfall</button>
-            <button id="navSafetyBtn" class="nav-tab text-sm">Sicherheit</button>
-            <div class="flex items-center space-x-4">
-                <button id="navAidBtn" class="nav-tab text-sm">Erste Hilfe</button>
-                <button id="openSettingsBtn" class="text-xl text-white/80 hover:text-white transition" aria-label="Einstellungen">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </button>
+        <div class="h-10 mt-2 flex justify-between items-center max-w-md mx-auto relative">
+            <div class="flex items-center space-x-6 mx-auto">
+                <button id="navMainBtn" class="nav-tab active text-sm font-medium">Notfall</button>
+                <button id="navSafetyBtn" class="nav-tab text-sm font-medium">Sicherheit</button>
+                <button id="navAidBtn" class="nav-tab text-sm font-medium">Hilfe</button>
             </div>
+            
+            <button id="openSettingsBtn" class="absolute right-0 text-xl text-white/80 hover:text-white transition" aria-label="Einstellungen">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </button>
         </div>
     </header>
 
@@ -275,12 +278,7 @@
                     <span class="text-sm font-bold text-red-600">Sirene</span>
                     <span class="text-[10px] text-red-400 uppercase tracking-wider">Abschreckung</span>
                 </button>
-                <button id="flashBtn" class="glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-yellow-50 active:scale-95 transition border-2 border-transparent">
-                    <span class="text-3xl">🔦</span>
-                    <span class="text-sm font-bold text-yellow-600">SOS Licht</span>
-                    <span class="text-[10px] text-yellow-500 uppercase tracking-wider">Blinken</span>
-                </button>
-                <button id="walkHomeBtn" class="glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-indigo-50 active:scale-95 transition border-2 border-transparent">
+                <button id="walkHomeBtn" class="col-span-2 glass rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-indigo-50 active:scale-95 transition border-2 border-transparent">
                     <span class="text-3xl">🚶</span>
                     <span class="text-sm font-bold text-indigo-600">Nach Hause</span>
                     <span class="text-[10px] text-indigo-400 uppercase tracking-wider">Timer</span>
@@ -477,30 +475,6 @@
             navMainBtn.addEventListener('click', () => { currentView = 0; updateView(); });
             navSafetyBtn.addEventListener('click', () => { currentView = 1; updateView(); });
             navAidBtn.addEventListener('click', () => { currentView = 2; updateView(); });
-
-            // Touch-Navigation (Swipe)
-            appContainer.addEventListener('touchstart', e => {
-                touchstartX = e.changedTouches[0].screenX;
-            }, {passive: true});
-
-            appContainer.addEventListener('touchend', e => {
-                touchendX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, {passive: true});
-
-            function handleSwipe() {
-                const threshold = 50; // Mindestdistanz für Swipe in px
-                if (touchendX < touchstartX - threshold) {
-                    // Swipe nach links -> Zeige rechte Seite
-                    if(currentView < 2) currentView++;
-                    updateView();
-                }
-                if (touchendX > touchstartX + threshold) {
-                    // Swipe nach rechts -> Zeige linke Seite
-                    if(currentView > 0) currentView--;
-                    updateView();
-                }
-            }
 
             // ================= NEU: EINSTELLUNGEN (KONTAKTE & MED-PASS) =================
             const settingsModal = document.getElementById('settingsModal');
@@ -782,42 +756,6 @@
             }
             sirenBtn.addEventListener('click', toggleSiren);
 
-            // ================= 4. SOS LICHT (Taschenlampe / Screen) =================
-            const flashBtn = document.getElementById('flashBtn');
-            let isFlashing = false;
-            let flashInterval;
-
-            if(!document.getElementById('flashOverlay')) {
-                const flOverlay = document.createElement('div');
-                flOverlay.id = 'flashOverlay';
-                flOverlay.className = 'hidden fixed inset-0 z-[300] bg-white';
-                document.body.appendChild(flOverlay);
-            }
-
-            flashBtn.addEventListener('click', () => {
-                const flOverlay = document.getElementById('flashOverlay');
-                if(isFlashing) {
-                    clearInterval(flashInterval);
-                    flOverlay.classList.add('hidden');
-                    isFlashing = false;
-                    flashBtn.innerHTML = `<span class="text-3xl">🔦</span><span class="text-sm font-bold text-yellow-600">SOS Licht</span><span class="text-[10px] text-yellow-500 uppercase tracking-wider">Blinken</span>`;
-                } else {
-                    isFlashing = true;
-                    flashBtn.innerHTML = `<span class="text-3xl">🛑</span><span class="text-sm font-bold text-yellow-600">Stop</span><span class="text-[10px] text-yellow-500 uppercase tracking-wider">Blinken</span>`;
-                    
-                    // SOS Muster (sehr schnelles Strobe für Aufmerksamkeit)
-                    let on = false;
-                    flashInterval = setInterval(() => {
-                        on = !on;
-                        if(on) {
-                            flOverlay.classList.remove('hidden');
-                        } else {
-                            flOverlay.classList.add('hidden');
-                        }
-                    }, 150); // 150ms an/aus
-                }
-            });
-
             // ================= 5. CPR METRONOM (Erste Hilfe) =================
             const cprBtn = document.getElementById('cprMetronomeBtn');
             let isCprOn = false;
@@ -1060,5 +998,4 @@
         });
     </script>
 </body>
-
 </html>
